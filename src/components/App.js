@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Schedule from './Schedule'
 import Countdown from './Countdown'
-import './App.css'
+import '../styles/reset.css'
+import '../styles/App.css'
 
 // Pomodoro 25 mins * 60 secs = 1500
 // Short Break 5 mins * 60 = 300
@@ -20,11 +21,13 @@ class App extends Component {
 
   render() {
     return (
-      <header className="App-header">
-        <h1 className="App-title">React Pomodoro</h1>
+      <div className="container">
+        <header className="header">
+          <h1 className="title">Pomodoro</h1>
+        </header>
         <Countdown timerLength={this.state.schedule[this.state.current]} />
         <Schedule schedule={this.state.schedule} />
-      </header>
+      </div>
     )
   }
 }

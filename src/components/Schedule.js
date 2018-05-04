@@ -1,23 +1,20 @@
 import React from 'react'
+import '../styles/Schedule.css'
 
-class Schedule extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      schedule: [...props.schedule]
-    }
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="schedule">
-          <h2>Schedule</h2>
-          { this.state.schedule.map(time => `${time / 60} `) }
-        </div>
-      </React.Fragment>
-    )
-  }
+const Schedule = (props) => {
+  return (
+    <div className="scheduleContainer">
+      <h2 className="scheduleHeader">Schedule</h2>
+      <ul className="scheduleUl">
+      { props.schedule.map((time, idx) => {
+        return <li key={idx} className="scheduleLi">
+          {time / 60} minutes
+          </li>
+        })
+      }
+      </ul>
+    </div>
+  )
 }
 
 export default Schedule

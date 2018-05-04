@@ -1,0 +1,35 @@
+.countdownContainer {
+  padding: 10px;
+  text-align: center;
+}
+
+.countdown {
+  margin: 50px auto;
+  font-size: 80px;
+}
+
+.selector {
+  margin: 0 auto;
+}
+
+.toggleSwitches,
+.controlButton {
+  background-color: #757D75;
+  padding: 10px 10%;
+  margin: 10px;
+  color: white;
+  font-weight: 600;
+  border: 2px groove black;
+}
+
+.stop {
+  background-color: #CF000F;
+}
+
+.start {
+  background-color: #5B8930;
+}
+
+.reset {
+  background-color: #1F4788;
+}

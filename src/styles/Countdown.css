@@ -1,5 +1,4 @@
 .countdownContainer {
-  padding: 10px;
   text-align: center;
 }
 
@@ -15,14 +14,15 @@
 .toggleSwitches,
 .controlButton {
   background-color: #757D75;
-  padding: 10px 10%;
-  margin: 10px;
+  padding: 10px;
+  margin: 1px;
+  width: 32%;
   color: white;
   font-weight: 600;
   border: 2px groove black;
 }
 
-.stop {
+.pause {
   background-color: #CF000F;
 }
 

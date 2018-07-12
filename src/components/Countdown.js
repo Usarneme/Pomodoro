@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/Countdown.css'
+import Music_Box_Notification from '../sounds/Music_Box_Notification.mp3'
 
 class Countdown extends React.Component {
 
@@ -11,6 +12,7 @@ class Countdown extends React.Component {
       currentCount: props.timerLength,
       timerRunning: false
     }
+
     this.timer = this.timer.bind(this)
     this.pause = this.pause.bind(this)
     this.start = this.start.bind(this)
@@ -23,6 +25,7 @@ class Countdown extends React.Component {
       currentCount: this.state.currentCount - 1
     })
     if (this.state.currentCount < 1) { 
+      this.Sound_Ref.play()
       clearInterval(this.intervalId)
     }
   }
@@ -71,14 +74,6 @@ class Countdown extends React.Component {
   render() {
     return(
       <div className="countdownContainer">
-        <div className="selector">
-        {
-          // pomodoro 1500, short break 300, long break 900 
-        }
-          <button className="toggleSwitches" onClick={() => this.setTimerTo(1500)} >Pomodoro</button>
-          <button className="toggleSwitches" onClick={() => this.setTimerTo(300)} >Short Break</button>
-          <button className="toggleSwitches" onClick={() => this.setTimerTo(900)} >Long Break</button>
-        </div>
         <div className="countdown">
           <span className="minutes">
             { Math.floor(this.state.currentCount / 60) }
@@ -93,6 +88,25 @@ class Countdown extends React.Component {
           <button className="controlButton start" onClick={this.start} >Start</button>
           <button className="controlButton reset" onClick={this.reset} >Reset</button>
         </div>
+        <div className="selector">
+        {
+          // pomodoro 1500, short break 300, long break 900 
+        }
+          <button className="toggleSwitches" onClick={() => this.setTimerTo(1500)} >
+            <div>Pomodoro</div> 
+            <div>25 Minutes</div>
+          </button>
+          <button className="toggleSwitches" onClick={() => this.setTimerTo(300)} >
+            <div>Short Break</div> 
+            <div>5 Minutes</div> 
+          </button>
+          <button className="toggleSwitches" onClick={() => this.setTimerTo(900)} >
+            <div>Long Break</div>
+            <div>15 Minutes</div>
+          </button>
+        </div>
+        <button className="toggleSwitches" onClick={() => this.setTimerTo(2)} >Quick!</button>
+        <audio ref={(x) => { this.Sound_Ref = x; }} src={Music_Box_Notification} type="audio/mp3" />
       </div>
     )
   }

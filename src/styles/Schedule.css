@@ -1,7 +1,8 @@
 .scheduleContainer {
   text-align: center;
   border: 1px solid black;
-  margin: 4px;
+  margin: 40px auto 0;
+  max-width: 300px;
 }
 
 .scheduleHeader {

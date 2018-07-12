@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Schedule from './Schedule'
 import Countdown from './Countdown'
+import About from './About'
 import '../styles/reset.css'
 import '../styles/App.css'
 
@@ -22,11 +23,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <header className="header">
-          <h1 className="title">Pomodoro</h1>
-        </header>
         <Countdown timerLength={this.state.schedule[this.state.current]} />
-        <Schedule schedule={this.state.schedule} />
+        <Schedule schedule={this.state.schedule} current={this.state.current} />
+        <About />
       </div>
     )
   }

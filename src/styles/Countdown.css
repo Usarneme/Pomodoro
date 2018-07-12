@@ -3,8 +3,8 @@
 }
 
 .countdown {
-  margin: 50px auto;
-  font-size: 80px;
+  margin: 40px auto 0;
+  font-size: 130px;
 }
 
 .selector {
@@ -13,13 +13,28 @@
 
 .toggleSwitches,
 .controlButton {
-  background-color: #757D75;
+  background-color: #538fbe;
   padding: 10px;
-  margin: 1px;
+  margin: 3px;
   width: 32%;
-  color: white;
+  color: #fff;
   font-weight: 600;
-  border: 2px groove black;
+  min-height: 60px;
+
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+
+  display: inline-block;
+  border: 1px groove #000;
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+  -webkit-box-shadow: 0px 1px 0px, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+  -moz-box-shadow: 0px 1px 0px, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+  box-shadow: 0px 1px 0px, 0px 1px 1px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
 }
 
 .pause {

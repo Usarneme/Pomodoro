@@ -6,7 +6,7 @@ class Schedule extends React.Component {
     super(props)
     this.state = {
       schedule: [...props.schedule],
-      currentTimer: 0
+      currentTimer: this.props.current
     }
   }
 
@@ -16,9 +16,7 @@ class Schedule extends React.Component {
         <h2 className="scheduleHeader">Schedule</h2>
         <ul className="scheduleUl">
         { this.state.schedule.map((time, idx) => {
-          return <li key={idx} className="scheduleLi">
-            {time / 60} minutes
-            </li>
+          return idx === this.state.currentTimer ? <li key={idx} className="scheduleLi currentTimer" >{time / 60} minutes</li> : <li key={idx} className="scheduleLi" >{time / 60} minutes</li>
           })
         }
         </ul>

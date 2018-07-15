@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import CountdownTimer from './CountdownTimer'
+import CustomScheduler from './CustomScheduler'
+import Controls from './Controls'
 import Schedule from './Schedule'
-import Countdown from './Countdown'
 import About from './About'
 import '../styles/reset.css'
 import '../styles/App.css'
@@ -16,15 +18,26 @@ class App extends Component {
         // 25 on, 5 off, 25 on, 5 off, 25 on, 5 off, 25 on, 15 off
         1500,300,1500,300,1500,300,1500,900
       ],
-      current: 0
+      current: 0,
+      scheduleShowing: true
     }
   }
 
   render() {
     return (
       <div className="container">
-        <Countdown timerLength={this.state.schedule[this.state.current]} />
-        <Schedule schedule={this.state.schedule} current={this.state.current} />
+        <CountdownTimer timerLength={this.state.schedule[this.state.current]} />
+        <Controls timerLength={this.state.schedule[this.state.current]} />
+        {
+          this.state.scheduleShowing ? ( 
+          <Schedule 
+            schedule={this.state.schedule} 
+            current={this.state.current} 
+            scheduleShowing={this.state.scheduleShowing} /> 
+          ) : ( 
+            <CustomScheduler timerLength={this.state.schedule[this.state.current]} /> 
+          )
+        }
         <About />
       </div>
     )

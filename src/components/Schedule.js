@@ -1,28 +1,37 @@
 import React from 'react'
 import '../styles/Schedule.css'
 
-class Schedule extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      schedule: [...props.schedule],
-      currentTimer: this.props.current
-    }
-  }
+const Schedule = (props) => {
 
-  render() {
-    return (
-      <div className="scheduleContainer">
-        <h2 className="scheduleHeader">Schedule</h2>
-        <ul className="scheduleUl">
-        { this.state.schedule.map((time, idx) => {
-          return idx === this.state.currentTimer ? <li key={idx} className="scheduleLi currentTimer" >{time / 60} minutes</li> : <li key={idx} className="scheduleLi" >{time / 60} minutes</li>
-          })
+  return (
+    <div className="scheduleContainer">
+      <h2 className="scheduleHeader">Schedule</h2>
+      <ul className="scheduleUl">
+      { props.schedule.map((time, idx) => {
+        return idx === props.currentTimer ? <li key={idx} className="scheduleLi currentTimer" >{time / 60} minutes</li> : <li key={idx} className="scheduleLi" >{time / 60} minutes</li>
+        })
+      }
+      </ul>
+      <div className="buttonsContainer">
+        {
+          // pomodoro 1500, short break 300, long break 900 
         }
-        </ul>
+        <button className="toggleSwitches" onClick={() => props.setTimerTo(1500)} >
+          <div>Pomodoro</div> 
+          <div>25 Minutes</div>
+        </button>
+        <button className="toggleSwitches" onClick={() => props.setTimerTo(300)} >
+          <div>Short Break</div> 
+          <div>5 Minutes</div> 
+        </button>
+        <button className="toggleSwitches" onClick={() => props.setTimerTo(900)} >
+          <div>Long Break</div>
+          <div>15 Minutes</div>
+        </button>
       </div>
-    )
-  }
+      <button className="toggleSwitches" onClick={() => props.setTimerTo(2)} >Quick!</button>
+    </div>
+  )
 }
 
 export default Schedule

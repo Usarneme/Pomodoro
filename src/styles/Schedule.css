@@ -5,6 +5,11 @@
   max-width: 300px;
 }
 
+.draggable-container {
+  /* Position-Relative bounds the Draggable schedule elements within this container */
+  position: relative;
+}
+
 .scheduleHeader {
   background-color: lightblue;
   font-size: large;
@@ -12,9 +17,17 @@
 }
 
 .scheduleLi {
-  padding: 8px 16px;
+  cursor: grab;
+  height: 30px;
+  display: grid;
+  align-items: center;
 }
 
 .scheduleLi:nth-child(2n) {
   background-color: gainsboro;
+}
+
+.react-draggable-dragging {
+  transform: scale(1.5);
+  background-color: rgba(20,20,20,0.15)
 }

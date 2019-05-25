@@ -1,5 +1,6 @@
 // React
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
 // Components
 import CountdownTimer from './CountdownTimer'
@@ -91,25 +92,48 @@ class Pomodoro extends Component {
 
   render() {
     return (
-      <div className="container">
-        <CountdownTimer currentCount={this.state.currentCount} />
+      <div className="application">
+        <Helmet>
+          {/* Chrome (and Android) */}
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="application-name" content="Tom's Pomodoro" />
+          <link rel="icon" sizes="192x192" href="../images/android-chrome-192x192.png" />
+          <link rel="icon" sizes="512x512" href="../images/android-chrome-512x512.png" />
+          {/* Safari on iOS */}
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="#c2f5e6" />
+          <meta name="apple-mobile-web-app-title" content="Tom's Pomodoro" />
+          <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+          {/* Tile icon for Win8 (144x144 + tile color) */}
+          <meta name="msapplication-TileImage" content="../images/android-chrome-192x192.png" />
+          <meta name="msapplication-TileColor" content="#c2f5e6" />
+          <meta name="msapplication-tap-highlight" content="no" />
+          <meta name="msapplication-starturl" content="/" />
+          {/* Progressive Web App manifest */}
+          <meta name="theme-color" content="#c2f5e6" />
+          {/* Favicon */}
+          <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+        </Helmet>
+        <div className="container">
+          <CountdownTimer currentCount={this.state.currentCount} />
 
-        <Controls 
-          pause={this.pause}
-          start={this.start}
-          reset={this.reset}
-        />
+          <Controls 
+            pause={this.pause}
+            start={this.start}
+            reset={this.reset}
+          />
 
-        <Schedule 
-          schedule={this.state.schedule} 
-          current={this.state.current} 
-          scheduleShowing={this.state.scheduleShowing} 
-          setTimerTo={this.setTimerTo}
-        /> 
+          <Schedule 
+            schedule={this.state.schedule} 
+            current={this.state.current} 
+            scheduleShowing={this.state.scheduleShowing} 
+            setTimerTo={this.setTimerTo}
+          /> 
 
-        <About />
+          <About />
 
-        <audio ref={(x) => { this.Sound_Ref = x; }} src={Music_Box_Notification} type="audio/mp3" />
+          <audio ref={(x) => { this.Sound_Ref = x; }} src={Music_Box_Notification} type="audio/mp3" />
+        </div>
       </div>
     )
   }
